@@ -7,13 +7,13 @@ class App extends React.Component {
 
     this.state = {
       value: "Submit the Form to see this text change",
-      input: ''
+      input: "",
     };
   }
 
   handleInput = (evt) => {
-    this.setState({input: evt.target.value})
-  }
+    this.setState({ input: evt.target.value });
+  };
 
   render() {
     return (
@@ -22,10 +22,15 @@ class App extends React.Component {
         <form
           onSubmit={(evt) => {
             evt.preventDefault();
-            this.setState({value: this.state.input})
+            this.setState({ value: this.state.input });
           }}
         >
-          <input type="text" id="user-in" onChange={this.handleInput}/>
+          <input
+            type="text"
+            id="user-in"
+            onChange={this.handleInput}
+            value={this.state.input}
+          />
           <input type="submit" />
         </form>
       </div>
