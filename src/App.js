@@ -1,5 +1,4 @@
 import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
 
 class App extends React.Component {
@@ -8,7 +7,12 @@ class App extends React.Component {
 
     this.state = {
       value: "Submit the Form to see this text change",
+      input: ''
     };
+  }
+
+  handleInput = (evt) => {
+    this.setState({input: evt.target.value})
   }
 
   render() {
@@ -18,10 +22,10 @@ class App extends React.Component {
         <form
           onSubmit={(evt) => {
             evt.preventDefault();
-            this.setState(document.getElementById("user-in").value);
+            this.setState({value: this.state.input})
           }}
         >
-          <input type="text" id="user-in" />
+          <input type="text" id="user-in" onChange={this.handleInput}/>
           <input type="submit" />
         </form>
       </div>
